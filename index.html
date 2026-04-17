@@ -3,151 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE EMPERORS - Convite</title>
+    <title>THE EMPERORS - Blox Fruits</title>
     <style>
         :root {
-            --primary-color: #ffcc00;
-            --bg-overlay: rgba(0, 0, 0, 0.7);
-            --glass-bg: rgba(255, 255, 255, 0.1);
+            --primary: #ffcc00;
+            --glass: rgba(0, 0, 0, 0.75);
+            --card-bg: rgba(255, 255, 255, 0.1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
+            /* Fundo solicitado */
             background: url('https://assetsio.gnwcdn.com/blox-fruits-artwork.webp?width=690&quality=85&format=jpg&dpr=3&auto=webp') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
         }
 
         .container {
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
             padding: 40px;
-            width: 90%;
-            max-width: 500px;
+            width: 95%;
+            max-width: 550px;
             text-align: center;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            color: white;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         .server-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid var(--primary-color);
-            margin-bottom: 20px;
-            object-fit: cover;
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            border: 2px solid var(--primary);
+            margin-bottom: 15px;
+            box-shadow: 0 0 15px var(--primary);
         }
 
         h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--primary-color);
+            font-size: 2.2rem;
+            color: var(--primary);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            margin-bottom: 5px;
         }
 
-        p {
-            line-height: 1.6;
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.8;
             margin-bottom: 25px;
-            font-size: 1.1rem;
+            letter-spacing: 1px;
         }
 
-        .step {
-            display: none;
-            animation: fadeIn 0.5s ease;
+        /* GRID DE SERVIÇOS EXPLICATIVOS */
+        .grid-servicos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
         }
 
-        .step.active {
-            display: block;
+        .card {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
         }
+
+        .card:hover { background: rgba(255,255,255,0.15); }
+
+        .card h3 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            font-size: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .step { display: none; animation: slideUp 0.4s ease-out; }
+        .active { display: block; }
 
         .btn {
-            background: var(--primary-color);
-            color: black;
-            padding: 12px 30px;
+            background: var(--primary);
+            color: #000;
+            padding: 15px 40px;
             border: none;
             border-radius: 50px;
-            font-weight: bold;
-            font-size: 1rem;
+            font-weight: 800;
             cursor: pointer;
-            transition: transform 0.3s, background 0.3s;
             text-decoration: none;
             display: inline-block;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
         }
 
         .btn:hover {
-            transform: scale(1.05);
-            background: #e6b800;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 204, 0, 0.5);
         }
 
-        .services-list {
-            text-align: left;
-            margin: 20px auto;
-            display: inline-block;
-        }
-
-        .services-list li {
-            list-style: none;
-            margin-bottom: 8px;
-        }
-
-        .services-list li::before {
-            content: "⚔️";
-            margin-right: 10px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
+    <div class="overlay"></div>
+
     <div class="container">
-        <img src="https://assetsio.gnwcdn.com/roblox-blox-fruits-codes-list.jpg?width=690&quality=85&format=jpg&dpr=3&auto=webp" alt="Logo THE EMPERORS" class="server-logo">
-        
+        <img src="https://assetsio.gnwcdn.com/roblox-blox-fruits-codes-list.jpg?width=690&quality=85&format=jpg&dpr=3&auto=webp" class="server-logo">
+
         <div id="step1" class="step active">
             <h1>THE EMPERORS</h1>
-            <p>O império número #1 de <strong>Blox Fruits</strong> no Discord!</p>
+            <p class="subtitle">DOMINE OS MARES CONOSCO</p>
             
-            <ul class="services-list">
-                <li>Up de Contas Profissional</li>
-                <li>Venda de Contas Raras</li>
-                <li>Serviços de Raid e Itens</li>
-                <li>Comunidade 100% Ativa</li>
-            </ul>
+            <div class="grid-servicos">
+                <div class="card">
+                    <h3>UP DE CONTAS</h3>
+                    <p>Level máximo, maestria e itens raros de forma rápida e segura.</p>
+                </div>
+                <div class="card">
+                    <h3>LOJA VIP</h3>
+                    <p>Venda de contas prontas com as melhores frutas e itens do jogo.</p>
+                </div>
+                <div class="card">
+                    <h3>SERVIÇOS</h3>
+                    <p>Raids, Trial, Soul Guitar e tudo que você precisar para seu boneco.</p>
+                </div>
+                <div class="card">
+                    <h3>COMUNIDADE</h3>
+                    <p>Chat ativo 24h, sorteios semanais e eventos exclusivos.</p>
+                </div>
+            </div>
 
-            <button class="btn" onclick="nextStep()">PRÓXIMA PARTE</button>
+            <button class="btn" onclick="proximo()">PRÓXIMA PARTE</button>
         </div>
 
         <div id="step2" class="step">
-            <h1>E AI, OQUE ACHOU?</h1>
-            <p>Não perca tempo e venha evoluir com os melhores jogadores do cenário.</p>
-            <p><strong>VEM FAZER PARTE!</strong></p>
+            <h1 style="font-size: 2.5rem;">E AÍ, O QUE ACHOU?</h1>
+            <p style="margin: 20px 0; font-size: 1.2rem;">O império está esperando por você. Não fique para trás!</p>
+            <h2 style="margin-bottom: 30px; color: var(--primary);">VEM FAZER PARTE!</h2>
             
-            <a href="LINK_DO_SEU_DISCORD_AQUI" target="_blank" class="btn">ENTRAR NO SERVIDOR</a>
+            <a href="SEU_LINK_AQUI" class="btn">ENTRAR NO SERVIDOR</a>
         </div>
     </div>
 
     <script>
-        function nextStep() {
+        function proximo() {
             document.getElementById('step1').classList.remove('active');
             document.getElementById('step2').classList.add('active');
         }
     </script>
-
 </body>
 </html>
