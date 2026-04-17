@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE EMPERORS - Convite</title>
+    <style>
+        :root {
+            --primary-color: #ffcc00;
+            --bg-overlay: rgba(0, 0, 0, 0.7);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: url('https://assetsio.gnwcdn.com/blox-fruits-artwork.webp?width=690&quality=85&format=jpg&dpr=3&auto=webp') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+
+        .server-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .btn {
+            background: var(--primary-color);
+            color: black;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: #e6b800;
+        }
+
+        .services-list {
+            text-align: left;
+            margin: 20px auto;
+            display: inline-block;
+        }
+
+        .services-list li {
+            list-style: none;
+            margin-bottom: 8px;
+        }
+
+        .services-list li::before {
+            content: "⚔️";
+            margin-right: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://assetsio.gnwcdn.com/roblox-blox-fruits-codes-list.jpg?width=690&quality=85&format=jpg&dpr=3&auto=webp" alt="Logo THE EMPERORS" class="server-logo">
+        
+        <div id="step1" class="step active">
+            <h1>THE EMPERORS</h1>
+            <p>O império número #1 de <strong>Blox Fruits</strong> no Discord!</p>
+            
+            <ul class="services-list">
+                <li>Up de Contas Profissional</li>
+                <li>Venda de Contas Raras</li>
+                <li>Serviços de Raid e Itens</li>
+                <li>Comunidade 100% Ativa</li>
+            </ul>
+
+            <button class="btn" onclick="nextStep()">PRÓXIMA PARTE</button>
+        </div>
+
+        <div id="step2" class="step">
+            <h1>E AI, OQUE ACHOU?</h1>
+            <p>Não perca tempo e venha evoluir com os melhores jogadores do cenário.</p>
+            <p><strong>VEM FAZER PARTE!</strong></p>
+            
+            <a href="LINK_DO_SEU_DISCORD_AQUI" target="_blank" class="btn">ENTRAR NO SERVIDOR</a>
+        </div>
+    </div>
+
+    <script>
+        function nextStep() {
+            document.getElementById('step1').classList.remove('active');
+            document.getElementById('step2').classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
